@@ -9,6 +9,17 @@
   background: radial-gradient(circle at 50% 0%, #150000 0%, var(--black) 55%);
 }
 
+/* Below tablet, a forced full-screen hero + a stacked title/subtitle/actions/stats/image
+   column adds up to 1.5-2x the viewport height, forcing people to scroll just to get past
+   it. Let the section size to its (tightened) content instead of forcing 100svh. */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 0;
+    display: block;
+    padding-bottom: 48px;
+  }
+}
+
 .hero__bg {
   position: absolute;
   inset: -10% 0 0 0;
@@ -330,29 +341,82 @@
   }
 }
 
-@media (max-width: 480px) {
+/* Mobile hero: compact spacing, a smaller/shorter image, and a scroll hint that gets out
+   of the way, so the whole section is roughly one screen instead of two. */
+@media (max-width: 768px) {
+  .hero__inner {
+    padding-top: 96px;
+    gap: 28px;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 16px;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+  }
+
+  .hero__title {
+    margin-bottom: 16px;
+  }
+
+  .hero__subtitle {
+    margin-bottom: 24px;
+    font-size: 1rem;
+  }
+
   .hero__actions {
     flex-direction: column;
     width: 100%;
+    gap: 12px;
+    margin-bottom: 32px;
   }
+
   .hero__actions .btn {
     width: 100%;
+    padding: 14px 28px;
   }
+
   .hero__stats {
-    flex-wrap: wrap;
-    row-gap: 14px;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .hero__stat {
+    align-items: center;
+    flex: 1;
+  }
+
+  .hero__stat strong {
+    font-size: 1.5rem;
+  }
+
+  .hero__visual {
+    margin-top: 28px;
+  }
+
+  .hero__image-wrap {
+    width: min(280px, 62%);
+    aspect-ratio: 3 / 3;
+  }
+
+  .hero__scroll-hint {
+    display: none;
   }
 }
 
 @media (max-width: 400px) {
   .hero__inner {
-    padding-top: 110px;
+    padding-top: 84px;
   }
   .hero__title {
     font-size: clamp(2.5rem, 11vw, 3rem);
   }
   .hero__stat-divider {
     height: 28px;
+  }
+  .hero__image-wrap {
+    width: min(230px, 58%);
   }
 }
 
