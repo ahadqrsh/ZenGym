@@ -1,0 +1,170 @@
+.bmi {
+  background: var(--dark-black);
+  position: relative;
+}
+
+.bmi__glow {
+  width: 550px;
+  height: 550px;
+  bottom: -10%;
+  right: -10%;
+  background: radial-gradient(circle, rgba(122, 0, 0, 0.35), transparent 70%);
+}
+
+.bmi__card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  padding: clamp(30px, 5vw, 56px);
+  align-items: center;
+}
+
+.bmi__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.bmi__field-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+
+.bmi__field-label span {
+  color: var(--white-70);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.bmi__field-label strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--red);
+}
+
+.bmi__slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--dark-red), var(--red));
+  outline: none;
+}
+
+.bmi__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--red);
+  box-shadow: 0 0 14px rgba(255, 0, 0, 0.7);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.bmi__slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.bmi__slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--red);
+  box-shadow: 0 0 14px rgba(255, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.bmi__btn {
+  margin-top: 6px;
+  width: 100%;
+}
+
+.bmi__result-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.bmi__gauge {
+  position: relative;
+  width: 100%;
+  max-width: 260px;
+}
+
+.bmi__gauge-svg {
+  width: 100%;
+  display: block;
+}
+
+.bmi__gauge-value {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bmi__gauge-value strong {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 1;
+}
+
+.bmi__gauge-value span {
+  font-size: 0.72rem;
+  color: var(--white-50);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+.bmi__category {
+  padding: 8px 24px;
+  border-radius: 100px;
+  border: 1px solid;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.bmi__scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.bmi__scale-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.75rem;
+  color: var(--white-50);
+}
+
+.bmi__scale-item i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+@media (max-width: 860px) {
+  .bmi__card {
+    grid-template-columns: 1fr;
+  }
+}

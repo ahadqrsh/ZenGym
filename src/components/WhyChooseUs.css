@@ -1,0 +1,87 @@
+.why {
+  background: linear-gradient(180deg, var(--black), var(--dark-black));
+}
+
+.why__glow {
+  width: 600px;
+  height: 600px;
+  top: 0;
+  right: -15%;
+  background: radial-gradient(circle, rgba(122, 0, 0, 0.35), transparent 70%);
+}
+
+.why__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.tilt-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.tilt-card__glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.tilt-card:hover .tilt-card__glow {
+  opacity: 1;
+}
+
+.tilt-card__content {
+  position: relative;
+  z-index: 1;
+}
+
+.why__card {
+  padding: 38px 30px;
+  height: 100%;
+}
+
+.why__icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.25), rgba(122, 0, 0, 0.15));
+  border: 1px solid var(--glass-border-red);
+  color: var(--red);
+  margin-bottom: 24px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
+}
+
+.why__card h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.why__card p {
+  color: var(--white-70);
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+@media (max-width: 980px) {
+  .why__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .why__grid {
+    grid-template-columns: 1fr;
+  }
+}
