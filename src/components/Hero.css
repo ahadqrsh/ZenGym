@@ -1,6 +1,8 @@
 .hero {
   position: relative;
+  /* svh/dvh avoid the layout jump caused by mobile browser address bars resizing 100vh mid-scroll. */
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -335,5 +337,49 @@
   }
   .hero__actions .btn {
     width: 100%;
+  }
+  .hero__stats {
+    flex-wrap: wrap;
+    row-gap: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero__inner {
+    padding-top: 110px;
+  }
+  .hero__title {
+    font-size: clamp(2.5rem, 11vw, 3rem);
+  }
+  .hero__stat-divider {
+    height: 28px;
+  }
+}
+
+/* Continuously-animating blurred layers are expensive to repaint on mobile GPUs and are
+   the biggest contributor to scroll jank on the hero — simplify instead of removing them. */
+@media (max-width: 768px) {
+  .hero__beam {
+    filter: blur(24px);
+  }
+
+  .hero__beam--3 {
+    display: none;
+  }
+
+  .hero__smoke {
+    filter: blur(40px);
+  }
+
+  .hero__image-glow {
+    filter: blur(30px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__beam,
+  .hero__smoke,
+  .hero__eyebrow-dot {
+    animation: none;
   }
 }

@@ -145,6 +145,7 @@
   .gallery__masonry {
     columns: 2 160px;
   }
+
   .gallery__lightbox {
     padding: 16px;
   }
@@ -158,5 +159,11 @@
   }
   .gallery__lightbox-nav--next {
     right: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .gallery__masonry {
+    columns: 1;
   }
 }

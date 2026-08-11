@@ -139,3 +139,12 @@
     display: flex;
   }
 }
+
+@media (max-width: 768px) {
+  /* This layer stays fixed and gets recomposited on every scroll frame — a lighter
+     blur here noticeably reduces scroll jank on mobile GPUs. */
+  .navbar--scrolled {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
